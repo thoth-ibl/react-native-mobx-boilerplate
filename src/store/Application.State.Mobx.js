@@ -11,7 +11,8 @@ class ApplicationState {
     It's observable, so can be updated with mobx.
   */
   @observable AppGlobalState = {
-    SplashShowing : true
+    SplashShowing : true,
+    DemostrationVariable  : false
   }
 
 

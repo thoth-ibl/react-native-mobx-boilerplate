@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
-import ApplicationState from './store/Application.State.Mobx';
-
+import ApplicationState from '../store/Application.State.Mobx';
+import { observer, inject } from 'mobx-react';
 const ContainerView = styled.View`
   flex: 1;
   justifyContent: center;
@@ -14,12 +14,14 @@ const TitleText = styled.Text`
   color: ${props => props.theme.VIVIDWHITE};
 `;
 
+@inject('ApplicationState')
 @observer
 class AppAboutScreen extends Component {
   render() {
     return (
       <ContainerView>
         <TitleText>{this.props.navigation.state.routeName}</TitleText>
+        <TitleText>DemostrationVariable: {ApplicationState.AppGlobalState.DemostrationVariable.toString()}</TitleText>
       </ContainerView>
     );
   }

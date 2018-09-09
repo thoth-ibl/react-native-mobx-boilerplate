@@ -5,8 +5,6 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator
 } from 'react-navigation';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-
 import { Ionicons } from '@expo/vector-icons';
 
 import TrainStationsScreen from './screens/Screen.Train.Stations';
