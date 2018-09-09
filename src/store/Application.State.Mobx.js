@@ -4,36 +4,42 @@ import { AsyncStorage } from 'react-native';
 
 
 class ApplicationState {
-  // User favourite stations, services, areas/near, etc
-  /*@observable UserFavourites  = {
-    TrainStations : [], //  User favourite train stations
-    TrainServices : [], //  User favourite train services
-    BusStops      : [], //  User favourite bus stops
-    BusServices   : [], //  User favourite bus services
-    Areas         : [], //  User favourite geo-areas
-    Places        : [], //  User referenced points (e.g. McDonalds in location -15.134,1.15478)
-    Journeys      : [], //  User favourite journeys
-  }
+  constructor(){};
 
-  // Selected station, stop, service, etc
-  // This state should be updated in order to update UI
-  @observable SelectedState = {
-    TrainStation  : {},
-    BusStops      : {},
-    BusService    : {},
-    TrainService  : {},
-    Journey       : {},
-    Tweets        : []
-  }*/
-  constructor(){
-      //
-  }
-
+  /*
+    Our application global state.
+    It's observable, so can be updated with mobx.
+  */
   @observable AppGlobalState = {
     SplashShowing : true
   }
 
+
+  /*
+    This is some example data we might want to persist to storage.
+    This is handy for storing a session token, favourites lists, or other data that needs to be retrieved across app restarts.
+    See https://github.com/pinqy520/mobx-persist for docs.
+  */
+  @persist('object') @observable persistedUserData    =   {
+    name : 'Some Data',
+    count : 0
+  };
+
 }
 
+const hydrate = create({
+  storage: AsyncStorage, // Choose our storage medium, ensure it's imported above
+  jsonify: true  // if you use AsyncStorage, this needs to be true
+})
+
+/*
+  We create and export a singleton (a single instance of our state).
+  This allows us to use inject and regular import to access the state.
+*/
 const singleton = new ApplicationState();
 export default singleton;
+
+// We hydrate anything we've persisted so that it is updated into the state on creation
+hydrate('persistedUserData', singleton).then(()=>{
+  console.log("Hydrated: persistedUserData")
+});
