@@ -1,6 +1,6 @@
 # React Native Boilerplate for Expo
 
-[![dependencies Status](https://david-dm.org/chronsyn/react-native-mobx-boilerplate/status.svg?style=flat-square)](https://david-dm.org/chronsyn/react-native-mobx-boilerplate/status.svg)
+[![dependencies Status](https://david-dm.org/chronsyn/react-native-mobx-boilerplate/status.svg?style=flat-square)](https://david-dm.org/chronsyn/react-native-mobx-boilerplate)
 [![devDependencies Status](https://david-dm.org/chronsyn/react-native-mobx-boilerplate/dev-status.svg?style=flat-square)](https://david-dm.org/chronsyn/react-native-mobx-boilerplate?type=dev)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
