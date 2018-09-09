@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components/native';
+import ApplicationState from './store/Application.State.Mobx';
 
 const ContainerView = styled.View`
   flex: 1;
@@ -13,6 +14,7 @@ const TitleText = styled.Text`
   color: ${props => props.theme.VIVIDWHITE};
 `;
 
+@observer
 class AppAboutScreen extends Component {
   render() {
     return (
